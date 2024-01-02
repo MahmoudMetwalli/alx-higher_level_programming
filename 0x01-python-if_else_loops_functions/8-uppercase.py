@@ -4,5 +4,5 @@ def uppercase(str):
     for j in range(str[range(i)]):
         if (j >= 97) and (j <= 122):
             j -= 32
-        print(f"{j}", end="")
+        print(f"{j:c}", end="")
     print("\n", end="")
