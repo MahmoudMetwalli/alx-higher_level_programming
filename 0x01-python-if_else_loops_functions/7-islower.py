@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def islower(c):
     i = ord(c)
-    if (i >= 65) and (i <= 90):
-        print(f"{c} => upper")
-    elif:
-        print(f"{c} => lower")
+    if (i >= 97) and (i <= 122):
+        return True
+    else:
+        return False
