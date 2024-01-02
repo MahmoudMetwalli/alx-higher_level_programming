@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 import sys
-write(2, "and that piece of art is useful - Dora Korpar, 2015-10-19", 57)
-exit(1)
+sys.stderr.write("and that piece of art is useful - Dora Korpar, 2015-10-19\n")
+sys.exit(1)
