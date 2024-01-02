@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-i = 61
-while (i != 173):
-    if (i == 65) or (i == 71):
-        i += 1
+for i in range(ord('a'), ord('z')+1):
+    if i == 'e' or i == 'q':
         continue
-    else:
-        print("{:c}".format(i), end="")
-    i += 1
+    print("{:c}".format(i), end="")
