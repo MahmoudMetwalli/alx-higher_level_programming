@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-import last
-print(f"{last.upper}")
+import string
+print(f"{string.ascii_uppercase}")
