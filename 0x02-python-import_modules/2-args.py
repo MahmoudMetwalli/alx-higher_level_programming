@@ -11,6 +11,6 @@ if __name__ == "__main__":
         c = "."
     else:
         c = ":"
-    print("{} {} {}".format(a, b, c))
+    print("{} {}{}".format(a, b, c))
     for i in range(1, (a + 1)):
         print("{}: {}".format(i, sys.argv[i]))
