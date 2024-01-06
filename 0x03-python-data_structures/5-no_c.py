@@ -7,7 +7,7 @@ def no_c(my_string):
             continue
         else:
             new_str.append(my_string[i])
-    str = ""
+    str4 = ""
     for ele in new_str:
-        str += ele
-    return str
+        str4 += ele
+    return str4
