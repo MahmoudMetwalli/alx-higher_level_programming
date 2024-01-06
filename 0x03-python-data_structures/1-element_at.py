@@ -4,3 +4,5 @@ def element_at(my_list, idx):
     a -= 1
     if (idx < 0) or (idx > a):
         return "None"
+    else:
+        return my_list[idx]
