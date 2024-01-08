@@ -31,11 +31,11 @@ int num_nodes(listint_t *head)
 */
 int is_palindrome(listint_t **head)
 {
-	int l = 0, k, i = 0, len, *array;
+	int l = 0, k, i = 0, len;
+	static int array[100000];
 	listint_t *current;
 
 	len = num_nodes(*head);
-	array = malloc(sizeof(int) * len);
 	current = *head;
 	while (i < len)
 	{
@@ -48,12 +48,10 @@ int is_palindrome(listint_t **head)
 	{
 		if (array[l] != array[k])
 		{
-			free(array);
 			return (0);
 		}
 		l++;
 		k--;
 	}
-	free(array);
 	return (1);
 }
