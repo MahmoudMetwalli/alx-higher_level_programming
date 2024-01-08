@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 int num_nodes(listint_t *head);
-void free_array(int *array, int len);
 /**
  * num_nodes - return num of nodes in a linked list
  * @head: head node
@@ -25,20 +24,6 @@ int num_nodes(listint_t *head)
 	}
 	return (t);
 }
-/**
- * free_array - frees an int malloced array
- * @array: int array
- * @len: length of array
-void free_array(int *array, int len)
-{
-	int i;
-
-	for (i = 0; i < len; i++)
-	{
-		free(array[i]);
-	}
-	free(array);
-}*/
 /**
  * is_palindrome - checks palindrome list
  * @head: pointer to head
