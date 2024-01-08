@@ -1,10 +1,24 @@
-#include "listobject.h"
-#include "object.h"
-void print_python_list_info(PyObject *p)
-{
-	int i, l;
+#include <python3.10/Python.h>
 
-	l = PyList_Size(p);
-	for (i = 0 ; i < l ; i++)
-		printf("[*] Size of the Python List = %d", l);
+int main()
+{
+	Py_Initialize();
+
+	PyObject *myString = Py_BuildValue("s", "Hello from C!");
+
+	if (myString != NULL)
+	{
+		PyObject_Print(myString, stdout, 0);
+		printf("\n");
+
+		Py_DECREF(myString);
+	}
+	else
+	{
+		PyErr_Print();
+	}
+
+	Py_Finalize();
+
+	return (0);
 }
