@@ -1,5 +1,5 @@
-#include <Python.h>
-
+#include "listobject.h"
+#include "object.h"
 int main()
 {
 	Py_Initialize();
