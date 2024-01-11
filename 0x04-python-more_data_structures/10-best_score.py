@@ -7,8 +7,8 @@ def best_score(a_dictionary):
         if l == 0:
             k = i
             m = a_dictionary[i]
+            l = 1
         if a_dictionary[i] > m:
             k = i
             m = a_dictionary[i]
-        l += 0
     return k
