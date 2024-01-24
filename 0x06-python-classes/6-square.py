@@ -18,7 +18,9 @@ class Square:
     """python3 -c 'print(__import__("my_module").my_function.__doc__)'"""
     @position.setter
     def position(self, value):
-        if not (type(value) == tuple and len(value) == 2 and value[0] >= 0 and value[1] >= 0):
+        if not (type(value) == tuple and len(value) == 2):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if any(type(i) != int for i in value) or any(j < 0 for j in value):
             raise TypeError("position must be a tuple of 2 positive integers")
     """python3 -c 'print(__import__("my_module").my_function.__doc__)'"""
     def area(self):
