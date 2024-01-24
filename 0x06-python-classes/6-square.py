@@ -10,7 +10,7 @@ class Square:
         if size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
-        self.__position = (position[0], position[1])
+        self.__position = position
     """python3 -c 'print(__import__("my_module").my_function.__doc__)'"""
     @property
     def position(self):
