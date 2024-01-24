@@ -1,21 +1,38 @@
 #!/usr/bin/python3
-"""python3 -c 'print(__import__("my_module").__doc__)'"""
+"""Define a class Square."""
 
 
 class Square:
-    """python3 -c 'print(__import__("my_module").MyClass.__doc__)'"""
+    """Represent a square."""
+
     def __init__(self, size=0, position=(0, 0)):
-        if not type(size) == int:
+        """Initialize a new square.
+
+        Args:
+            size (int): The size of the new square.
+            position (int, int): The position of the new square.
+        """
+        self.size = size
+        self.position = position
+
+    @property
+    def size(self):
+        """Get/set the current size of the square."""
+        return (self.__size)
+
+    @size.setter
+    def size(self, value):
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if size < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = size
-        self.__position = position
-    """python3 -c 'print(__import__("my_module").my_function.__doc__)'"""
+        self.__size = value
+
     @property
     def position(self):
-        return self.__position
-    """python3 -c 'print(__import__("my_module").my_function.__doc__)'"""
+        """Get/set the current position of the square."""
+        return (self.__position)
+
     @position.setter
     def position(self, value):
         if (not isinstance(value, tuple) or
@@ -24,23 +41,13 @@ class Square:
                 not all(num >= 0 for num in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
-    """python3 -c 'print(__import__("my_module").my_function.__doc__)'"""
+
     def area(self):
-        return self.__size**2
-    """python3 -c 'print(__import__("my_module").my_function.__doc__)'"""
-    @property
-    def size(self):
-        return self.__size
-    """python3 -c 'print(__import__("my_module").my_function.__doc__)'"""
-    @size.setter
-    def size(self, value):
-        if not type(value) == int:
-            raise TypeError("size must be an integer")
-        if value < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = value
-    """python3 -c 'print(__import__("my_module").my_function.__doc__)'"""
+        """Return the current area of the square."""
+        return (self.__size * self.__size)
+
     def my_print(self):
+        """Print the square with the # character."""
         if self.__size == 0:
             print("")
             return
