@@ -47,7 +47,7 @@ class Rectangle:
             return 0
         else:
             return (self.__width + self.__height) * 2
-        
+
     def __str__(self):
         """function that returns printable rectangle of hashs"""
         if self.height != 0 and self.width != 0:
