@@ -54,7 +54,7 @@ class Rectangle:
 
     def __str__(self):
         """function that returns printable rectangle of hashs"""
-        if self.height != 0 or self.width != 0:
+        if self.height != 0 and self.width != 0:
             for i in range(0, self.height):
                 for j in range(0, self.width):
                     print("#", end="")
