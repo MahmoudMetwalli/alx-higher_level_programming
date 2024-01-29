@@ -2,4 +2,3 @@
 """module that defines a class rectangle"""
 class Rectangle:
     """class rectangle"""
-    pass
