@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """module that adds two integers"""
+
+
 def add_integer(a, b=98):
     """function that adds two integers"""
     if type(a) is not int:

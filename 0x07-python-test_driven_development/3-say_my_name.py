@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """module that prints My name"""
+
+
 def say_my_name(first_name, last_name=""):
     """function that prints My name"""
     if type(first_name) != str:
