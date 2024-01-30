@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """solves the N queens problem"""
-
-
 import sys
+
 
 def main():
     """solves the N queens problem"""
@@ -18,6 +17,7 @@ def main():
         print("N must be at least 4")
         exit(1)
     print("OK")
+
 
 if __name__ == "__main__":
     main()
