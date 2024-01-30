@@ -6,6 +6,5 @@ class LockedClass:
 
     __slots__ = ['first_name']
 
-    def __init__(self, value=""):
+    def __init__(self):
         """to be locked"""
-        self.first_name = value
