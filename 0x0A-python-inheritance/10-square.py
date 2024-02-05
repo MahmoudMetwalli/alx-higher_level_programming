@@ -1,51 +1,15 @@
 #!/usr/bin/python3
-"""an empty class BaseGeometry"""
-
-
-class BaseGeometry:
-    """an empty class BaseGeometry"""
-
-    def area(self):
-        """not implemented"""
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """validates value"""
-        if type(value) != int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
-
-
-class Rectangle(BaseGeometry):
-    """an empty class Rectangle"""
-    def __init__(self, width, height):
-        """Initiation"""
-        super().integer_validator("width", width)
-        super().integer_validator("height", height)
-        self.__width = width
-        self.__height = height
-
-    def area(self):
-        """get area"""
-        return (self.__height * self.__width)
-
-    def __str__(self):
-        """print"""
-        return f"[Rectangle] {self.__width}/{self.__height}"
+"""
+Square module
+"""
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """Square"""
+    """class inherits from Rectangle"""
+
     def __init__(self, size):
-        """init"""
-        super().integer_validator("size", size)
+        """initialization method"""
+        self.integer_validator('size', size)
         self.__size = size
-
-    def area(self):
-        """area"""
-        return self.__size ** 2
-
-    def __str__(self):
-        """print"""
-        return f"[Rectangle] {self.__size}/{self.__size}"
+        super().__init__(self.__size, self.__size)
