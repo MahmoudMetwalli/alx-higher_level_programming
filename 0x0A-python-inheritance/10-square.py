@@ -34,6 +34,7 @@ class Rectangle(BaseGeometry):
         """print"""
         return f"[Rectangle] {self.__width}/{self.__height}"
 
+
 class Square(Rectangle):
     """Square"""
     def __init__(self, size):
@@ -44,3 +45,7 @@ class Square(Rectangle):
     def area(self):
         """area"""
         return self.__size ** 2
+
+    def __str__(self):
+        """print"""
+        return f"[Rectangle] {self.__size}/{self.__size}"
