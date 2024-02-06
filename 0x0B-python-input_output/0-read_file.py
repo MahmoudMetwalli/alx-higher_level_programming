@@ -4,5 +4,5 @@
 
 def read_file(filename=""):
     """reads nad prints file"""
-    with open(filename, encoding='UTF8') as a_file:
+    with open(filename, encoding='utf-8') as a_file:
         print(a_file.read())
