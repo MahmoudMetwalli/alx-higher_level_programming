@@ -14,5 +14,4 @@ except Exception:
     pass
 for i in range(1, len(sys.argv)):
     listed.append(sys.argv[i])
-    pass
 save_to_json_file(listed, "add_item.json")
