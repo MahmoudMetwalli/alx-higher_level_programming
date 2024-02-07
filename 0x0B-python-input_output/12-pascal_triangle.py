@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """pascal"""
 
+
 def fac(n):
     """calculate factorial"""
     if n == 0:
@@ -9,6 +10,7 @@ def fac(n):
     for i in range(1, (n + 1)):
         result *= i
     return result
+
 
 def pascal_triangle(n):
     """pascal"""
