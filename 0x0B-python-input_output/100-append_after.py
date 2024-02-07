@@ -9,6 +9,7 @@ def append_after(filename="", search_string="", new_string=""):
     if len(new_string) == 0:
         new_string = "\n"
     flag_3 = 0
+    flag_4 = 0
     if len(search_string) == 0:
         flag_3 = 1
     total = ""
@@ -24,11 +25,12 @@ def append_after(filename="", search_string="", new_string=""):
                         compare += 1
                     if flag == len(search_string):
                         flag_2 = 1
+                        flag_4 += 1
             total += line
             if flag_3:
                 total += new_string
             else:
                 if flag_2:
-                    total += new_string
+                    total += (new_string * flag_4)
     with open(filename, mode='w', encoding='utf-8') as b_file:
         b_file.write(total)
