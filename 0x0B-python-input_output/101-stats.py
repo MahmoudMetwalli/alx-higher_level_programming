@@ -25,10 +25,11 @@ try:
                 if value:
                     print(f"{key}: {value}")
             COUNT = 0
-    print(f"File size: {TOTAL_FILE_SIZE}")
-    for key, value in codes_dictionary.items():
-        if value:
-            print(f"{key}: {value}")
+    if COUNT == 10:
+        print(f"File size: {TOTAL_FILE_SIZE}")
+        for key, value in codes_dictionary.items():
+            if value:
+                print(f"{key}: {value}")
 except KeyboardInterrupt:
     print(f"File size: {TOTAL_FILE_SIZE}")
     for key, value in codes_dictionary.items():
