@@ -10,9 +10,15 @@ COUNT = 0
 TOTAL_FILE_SIZE = 0
 try:
     for line in sys.stdin:
-        if (line.split())[7] in codes_list:
-            codes_dictionary[(line.split())[7]] += 1
-        TOTAL_FILE_SIZE += int((line.split())[8])
+        try:
+            if (line.split())[7] in codes_list:
+                codes_dictionary[(line.split())[7]] += 1
+        except IndexError:
+            pass
+        try:
+            TOTAL_FILE_SIZE += int((line.split())[8])
+        except (IndexError, ValueError):
+            pass
         COUNT += 1
         if COUNT == 10:
             print(f"File size: {TOTAL_FILE_SIZE}")
