@@ -19,7 +19,6 @@ try:
         except (IndexError, ValueError):
             pass
         COUNT += 1
-        print(COUNT)
         if COUNT == 10:
             print(f"File size: {TOTAL_FILE_SIZE}")
             for key, value in codes_dictionary.items():
