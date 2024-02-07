@@ -2,9 +2,9 @@
 """reads stdin line by line and computes metrics"""
 import sys
 
-codes_list = ["200", "301", "400", "401", "403", "404", "405", "500"]
-codes_dictionary = {"200": 0, "301": 0, "400": 0,
-                    "401": 0, "403": 0, "404": 0, "405": 0, "500": 0}
+codes_list = ['200', '301', '400', '401', '403', '404', '405', '500']
+codes_dictionary = {'200': 0, '301': 0, '400': 0,
+                    '401': 0, '403': 0, '404': 0, '405': 0, '500': 0}
 COUNT = 0
 TOTAL_FILE_SIZE = 0
 try:
