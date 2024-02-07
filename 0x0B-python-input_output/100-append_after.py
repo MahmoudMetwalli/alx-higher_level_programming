@@ -7,7 +7,7 @@ def append_after(filename="", search_string="", new_string=""):
     if not isinstance(search_string, str) or not isinstance(new_string, str):
         return
     if len(new_string) == 0:
-        return
+        new_string = "\n"
     flag_3 = 0
     if len(search_string) == 0:
         flag_3 = 1
