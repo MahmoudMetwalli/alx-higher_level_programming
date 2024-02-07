@@ -22,8 +22,8 @@ def append_after(filename="", search_string="", new_string=""):
                         if line[compare] == search_string[i]:
                             flag += 1
                         compare += 1
-                if flag == len(search_string):
-                    flag_2 = 1
+                    if flag == len(search_string):
+                        flag_2 = 1
             total += line
             if flag_3:
                 total += new_string
