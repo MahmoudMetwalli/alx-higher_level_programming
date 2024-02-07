@@ -16,7 +16,7 @@ def pascal_triangle(n):
     """pascal"""
     pascal = []
     if n <= 0:
-        return pascal
+        return
     for i in range(0, n):
         pascal.append([])
         for j in range(0, (i + 1)):
