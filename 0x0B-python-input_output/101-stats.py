@@ -27,4 +27,4 @@ except KeyboardInterrupt:
             print("", end="")
         else:
             print(f"{key}: {value}")
-    traceback.print_exc()
+    raise
