@@ -6,6 +6,8 @@ def append_after(filename="", search_string="", new_string=""):
     """append after"""
     if len(search_string) == 0 or len(new_string) == 0:
         return
+    if not isinstance(search_string, str) or not isinstance(new_string, str):
+        return
     total = ""
     with open(filename, mode='r+', encoding='utf-8') as a_file:
         for line in a_file.readlines():
