@@ -4,10 +4,11 @@ import sys
 
 
 def print_metrs(TOTAL_FILE_SIZE, codes_dictionary):
-    print(f"File size: {TOTAL_FILE_SIZE}")
-    for key, value in codes_dictionary.items():
-        if value:
-            print(f"{key}: {value}")
+    print("File size: {}".format(TOTAL_FILE_SIZE))
+    for key in sorted(codes_dictionary):
+        if codes_dictionary[key]:
+            print("{}: {}".format(key, codes_dictionary[key]))
+
 
 if __name__ == "__main__":
     codes_list = ["200", "301", "400", "401", "403", "404", "405", "500"]
