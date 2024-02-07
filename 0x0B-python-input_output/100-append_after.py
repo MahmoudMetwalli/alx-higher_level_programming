@@ -19,9 +19,12 @@ def append_after(filename="", search_string="", new_string=""):
                 flag = 0
                 if line[compare] == search_string[0]:
                     for i in range(0, len(search_string)):
-                        if line[compare] == search_string[i]:
-                            flag += 1
-                        compare += 1
+                        try:
+                            if line[compare] == search_string[i]:
+                                flag += 1
+                            compare += 1
+                        except IndexError:
+                            pass
                     if flag == len(search_string):
                         flag_2 = 1
             total += line
