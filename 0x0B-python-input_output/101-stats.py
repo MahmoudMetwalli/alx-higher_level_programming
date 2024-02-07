@@ -9,6 +9,8 @@ COUNT = 0
 TOTAL_FILE_SIZE = 0
 try:
     for line in sys.stdin:
+        if len(line.split()) != 9:
+            continue
         if (line.split())[7] in codes_list:
             codes_dictionary[(line.split())[7]] += 1
         TOTAL_FILE_SIZE += int((line.split())[8])
