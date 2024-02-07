@@ -1,53 +1,29 @@
 #!/usr/bin/python3
-"""
-Write a script that reads stdin
-line by line and computes metrics
-"""
+"""reads stdin line by line and computes metrics"""
+import sys
 
 
-def print_metrics(size, status_codes):
-    """
-    Display the current file size and count of status codes.
-    """
-    print("File size: {}".format(size))
-    for key in sorted(status_codes):
-        print("{}: {}".format(key, status_codes[key]))
-
+def print_metrs(TOTAL_FILE_SIZE, codes_dictionary):
+    print(f"File size: {TOTAL_FILE_SIZE}")
+    for key, value in codes_dictionary.items():
+        if value:
+            print(f"{key}: {value}")
 
 if __name__ == "__main__":
-    import sys
-
-    size = 0
-    status_codes = {}
-    valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
-    count = 0
-
+    codes_list = ["200", "301", "400", "401", "403", "404", "405", "500"]
+    codes_dictionary = {"200": 0, "301": 0, "400": 0,
+                        "401": 0, "403": 0, "404": 0, "405": 0, "500": 0}
+    COUNT = 0
+    TOTAL_FILE_SIZE = 0
     try:
         for line in sys.stdin:
-            if count == 10:
-                print_metrics(size, status_codes)
-                count = 1
-            else:
-                count += 1
-
-            line = line.split()
-
-            try:
-                size += int(line[-1])
-            except (IndexError, ValueError):
-                pass
-
-            try:
-                if line[-2] in valid_codes:
-                    if status_codes.get(line[-2], -1) == -1:
-                        status_codes[line[-2]] = 1
-                    else:
-                        status_codes[line[-2]] += 1
-            except IndexError:
-                pass
-
-        print_metrics(size, status_codes)
-
+            if (line.split())[7] in codes_list:
+                codes_dictionary[(line.split())[7]] += 1
+            TOTAL_FILE_SIZE += int((line.split())[8])
+            COUNT += 1
+            if COUNT == 10:
+                print_metrs(TOTAL_FILE_SIZE, codes_dictionary)
+                COUNT = 0
     except KeyboardInterrupt:
-        print_metrics(size, status_codes)
+        print_metrs(TOTAL_FILE_SIZE, codes_dictionary)
         raise
