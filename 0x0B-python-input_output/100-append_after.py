@@ -8,6 +8,9 @@ def append_after(filename="", search_string="", new_string=""):
         return
     if len(new_string) == 0:
         new_string = "\n"
+    flag_3 = 0
+    if len(search_string) == 0:
+        flag_3 = 1
     total = ""
     with open(filename, mode='r+', encoding='utf-8') as a_file:
         for line in a_file.readlines():
@@ -22,7 +25,10 @@ def append_after(filename="", search_string="", new_string=""):
                     if flag == len(search_string):
                         flag_2 = 1
             total += line
-            if flag_2:
+            if flag_3:
                 total += new_string
+            else:
+                if flag_2:
+                    total += new_string
     with open(filename, mode='w', encoding='utf-8') as b_file:
         b_file.write(total)
