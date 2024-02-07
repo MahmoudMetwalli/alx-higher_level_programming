@@ -19,5 +19,3 @@ for line in sys.stdin:
             else:
                 print(f"{key}: {value}")
         COUNT = 0
-        for code in codes_list:
-            codes_dictionary[code] = 0
