@@ -18,5 +18,5 @@ def pascal_triangle(n):
     for i in range(0, n):
         pascal.append([])
         for j in range(0, (i + 1)):
-            pascal[i].append(round(fac(i) / (fac(i - j) * fac(j))))
+            pascal[i].append(fac(i) // (fac(i - j) * fac(j)))
     return pascal
