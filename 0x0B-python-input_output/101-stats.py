@@ -15,16 +15,16 @@ try:
         TOTAL_FILE_SIZE += int((line.split())[8])
         COUNT += 1
         if COUNT == 10:
-            print("File size: {}".format(TOTAL_FILE_SIZE))
+            print(f"File size: {TOTAL_FILE_SIZE}")
             for key, value in codes_dictionary.items():
                 if value:
-                    print("{}: {}".format(key, value))
+                    print(f"{key}: {value}")
             COUNT = 0
 except KeyboardInterrupt:
-    print("File size: {}".format(TOTAL_FILE_SIZE))
+    print(f"File size: {TOTAL_FILE_SIZE}")
     for key, value in codes_dictionary.items():
         if value == 0:
             print("", end="")
         else:
-            print("{}: {}".format(key, value))
+            print(f"{key}: {value}")
     traceback.print_exc()
