@@ -2,28 +2,38 @@
 """reads stdin line by line and computes metrics"""
 import sys
 
-codes_list = ["200", "301", "400", "401", "403", "404", "405", "500"]
-codes_dictionary = {"200": 0, "301": 0, "400": 0,
-                    "401": 0, "403": 0, "404": 0, "405": 0, "500": 0}
-COUNT = 0
-TOTAL_FILE_SIZE = 0
+# Initialize variables
+total_size = 0
+status_codes = {}
+line_count = 0
+
 try:
+    # Loop through each line of stdin
     for line in sys.stdin:
-        if (line.split())[7] in codes_list:
-            codes_dictionary[(line.split())[7]] += 1
-        TOTAL_FILE_SIZE += int((line.split())[8])
-        COUNT += 1
-        if COUNT == 10:
-            print(f"File size: {TOTAL_FILE_SIZE}")
-            for key, value in codes_dictionary.items():
-                if value:
-                    print(f"{key}: {value}")
-            COUNT = 0
+        # Split the line by spaces
+        tokens = line.split()
+        # Get the file size from the last token
+        file_size = int(tokens[-1])
+        # Add it to the total size
+        total_size += file_size
+        # Get the status code from the second last token
+        status_code = tokens[-2]
+        # Increment the count for that status code
+        status_codes[status_code] = status_codes.get(status_code, 0) + 1
+        # Increment the line count
+        line_count += 1
+        # If the line count is a multiple of 10, print the statistics
+        if line_count % 10 == 0:
+            print("File size: {}".format(total_size))
+            # Sort the status codes by ascending order
+            sorted_codes = sorted(status_codes.keys())
+            # Print the number of lines for each status code
+            for code in sorted_codes:
+                print("{}: {}".format(code, status_codes[code]))
 except KeyboardInterrupt:
-    print(f"File size: {TOTAL_FILE_SIZE}")
-    for key, value in codes_dictionary.items():
-        if value == 0:
-            print("", end="")
-        else:
-            print(f"{key}: {value}")
-    raise
+    # If the user presses CTRL + C, print the statistics and exit
+    print("File size: {}".format(total_size))
+    sorted_codes = sorted(status_codes.keys())
+    for code in sorted_codes:
+        print("{}: {}".format(code, status_codes[code]))
+    sys.exit(0)
