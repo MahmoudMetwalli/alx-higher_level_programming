@@ -104,6 +104,7 @@ class Rectangle(Base):
             print()
 
     def __str__(self) -> str:
+        """print rectangle"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
@@ -172,3 +173,8 @@ class Rectangle(Base):
             self.__y = args[4]
         except IndexError:
             pass
+
+    def to_dictionary(self):
+        """returns dictionary representation"""
+        return {"id": self.id, "width": self.__width, "height": self.__height,
+                "x": self.__x, "y": self.__y}
