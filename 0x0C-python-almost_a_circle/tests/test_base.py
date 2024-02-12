@@ -1,0 +1,30 @@
+#!/usr/bin/python3
+"""UNITTEST OF BASE MODULE"""
+from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
+import unittest
+
+
+class TestOfBase(unittest.TestCase):
+    """Testing of Base Class"""
+    def setUp(self) -> None:
+        Base._Base__nb_objects = 0
+        pass
+
+    def tearDown(self):
+        '''Cleans up after each test_method.'''
+        pass
+
+    def test_1_nb_obects_initialized(self):
+        self.assertEqual(getattr(Base, "_Base__nb_objects"), 0)
+
+    def test_2_create_instance(self):
+        base_1 = Base()
+        base_2 = Base()
+        base_3 = Base()
+        base_75 = Base(75)
+        self.assertEqual(base_1.id, 1)
+        self.assertEqual(base_2.id, 2)
+        self.assertEqual(base_3.id, 3)
+        self.assertEqual(base_75.id, 75)
