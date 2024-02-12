@@ -67,13 +67,16 @@ class Base:
         from models.rectangle import Rectangle
         from models.square import Square
         file_name = cls.__name__ + ".json"
-        with open(file_name, encoding='utf-8') as file_a:
-            if cls is Rectangle:
-                return [Rectangle.create(**dictionary) for dictionary
-                        in Rectangle.from_json_string(file_a.read())]
-            if cls is Square:
-                return [Square.create(**dictionary) for dictionary
-                        in Square.from_json_string(file_a.read())]
+        try:
+            with open(file_name, encoding='utf-8') as file_a:
+                if cls is Rectangle:
+                    return [Rectangle.create(**dictionary) for dictionary
+                            in Rectangle.from_json_string(file_a.read())]
+                if cls is Square:
+                    return [Square.create(**dictionary) for dictionary
+                            in Square.from_json_string(file_a.read())]
+        except FileNotFoundError:
+            return []
 
     @classmethod
     def create_csv(cls, **dictionary):
