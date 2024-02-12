@@ -23,6 +23,8 @@ class Base:
         if len(list_dictionaries) == 0 or list_dictionaries is None:
             return json_list
         for dictionary in list_dictionaries:
+            if not isinstance(dictionary, dict):
+                raise TypeError("Input should be of type dict")
             json_list.append(dictionary)
         return json.dumps(json_list)
 
