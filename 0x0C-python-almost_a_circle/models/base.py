@@ -19,11 +19,11 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """returns the JSON string representation"""
-        if not isinstance(list_dictionaries, list):
-            raise TypeError("Input should be list of dict")
         json_list = []
         if len(list_dictionaries) == 0 or list_dictionaries is None:
             return json.dumps(json_list)
+        if not isinstance(list_dictionaries, list):
+            raise TypeError("Input should be list of dict")
         for dictionary in list_dictionaries:
             if not isinstance(dictionary, dict):
                 raise TypeError("Input should be list of dict")
