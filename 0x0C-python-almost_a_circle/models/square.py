@@ -4,7 +4,7 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """CLASS SQUARE"""
+    """CLASS SQUARE TO REPRESENT SQUARE SHAPE"""
 
     def __init__(self, size, x=0, y=0, base_id=None):
         """CLASS CONSTRUCTOR"""
