@@ -8,7 +8,7 @@ import unittest
 
 class TestOfBase(unittest.TestCase):
     """Testing of Base Class"""
-    def setUp(self) -> None:
+    def setUp(self):
         Base._Base__nb_objects = 0
         pass
 
