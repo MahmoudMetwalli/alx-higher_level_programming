@@ -8,13 +8,13 @@ class Base:
     """BASE CLASS"""
     __nb_objects = 0
 
-    def __init__(self, id=None):
+    def __init__(self, base_id=None):
         """CLASS CONSTRUCTOR"""
-        if id is None:
+        if base_id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
         else:
-            self.id = id
+            self.id = base_id
 
     @staticmethod
     def to_json_string(list_dictionaries):
