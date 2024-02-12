@@ -5,7 +5,7 @@ from models.base import Base
 
 class Rectangle(Base):
     """CLASS RECTANGLE"""
-    
+
     def __init__(self, width, height, x=0, y=0, base_id=None):
         """CLASS CONSTRUCTOR"""
         super().__init__(base_id)
@@ -105,7 +105,8 @@ class Rectangle(Base):
 
     def __str__(self) -> str:
         """print rectangle"""
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y}\
+ - {self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
         """Update attribtes"""

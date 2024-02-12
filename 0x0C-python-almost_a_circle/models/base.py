@@ -3,6 +3,7 @@
 import json
 import csv
 
+
 class Base:
     """BASE CLASS"""
     __nb_objects = 0
@@ -49,7 +50,7 @@ class Base:
         from models.square import Square
         instance = None
         if cls is Rectangle:
-            instance = Rectangle(1,1)
+            instance = Rectangle(1, 1)
         if cls is Square:
             instance = Square(1)
         instance.update(**dictionary)
@@ -68,6 +69,7 @@ class Base:
             if cls is Square:
                 return [Square.create(**dictionary) for dictionary
                         in Square.from_json_string(file_a.read())]
+
     @classmethod
     def create_csv(cls, **dictionary):
         """returns an instance with all attributes already set"""
@@ -75,7 +77,7 @@ class Base:
         from models.square import Square
         instance = None
         if cls is Rectangle:
-            instance = Rectangle(1,1)
+            instance = Rectangle(1, 1)
         if cls is Square:
             instance = Square(1)
         for keys, values in dictionary.items():
@@ -113,3 +115,29 @@ class Base:
             if cls is Square:
                 return [Square.create_csv(**dictionary) for dictionary
                         in csv_reader]
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        import turtle
+        import time
+        from random import randrange
+        turtle.Screen().colormode(255)
+        for i in list_rectangles + list_squares:
+            t = turtle.Turtle()
+            t.color((randrange(255), randrange(255), randrange(255)))
+            t.pensize(1)
+            t.penup()
+            t.pendown()
+            t.setpos((i.x + t.pos()[0], i.y - t.pos()[1]))
+            t.pensize(10)
+            t.forward(i.width)
+            t.left(90)
+            t.forward(i.height)
+            t.left(90)
+            t.forward(i.width)
+            t.left(90)
+            t.forward(i.height)
+            t.left(90)
+            t.end_fill()
+
+        time.sleep(5)
