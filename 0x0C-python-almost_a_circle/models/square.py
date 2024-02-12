@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""SQUARE"""
+"""SQUARE CLASS MODULE"""
 from models.rectangle import Rectangle
 
 
