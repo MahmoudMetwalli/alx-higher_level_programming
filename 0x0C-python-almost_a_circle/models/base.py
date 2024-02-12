@@ -24,7 +24,7 @@ class Base:
             return json.dumps(json_list)
         for dictionary in list_dictionaries:
             if not isinstance(dictionary, dict):
-                raise TypeError("Input should be of type dict")
+                pass
             json_list.append(dictionary)
         return json.dumps(json_list)
 
