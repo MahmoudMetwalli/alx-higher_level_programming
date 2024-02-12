@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""BASE"""
+"""BASE CLASS MODULE"""
 import json
 import csv
 
