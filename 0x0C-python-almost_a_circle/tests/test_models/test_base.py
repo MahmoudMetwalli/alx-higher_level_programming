@@ -89,6 +89,30 @@ class TestOfBase(unittest.TestCase):
         self.assertEqual(len(case_r.to_dictionary()),
                          len(case_dictionary_a_test))
 
+    def test_7_load_from_file(self):
+        """test for load_from_file"""
+        case_r1_a = Rectangle(10, 7, 2, 8)
+        case_r2_a = Rectangle(2, 4)
+        case_a = [case_r1_a, case_r2_a]
+        case_b = []
+        case_c = None
+        self.assertEqual(len(Rectangle.load_from_file()), len(case_b))
+        Rectangle.save_to_file(case_a)
+        with open("Rectangle.json", encoding='utf-8') as file_case_a:
+            self.assertEqual(len(file_case_a.read()), len('[{"y": 8,\
+ "x": 2, "id": 1, "width": 10, "height": 7}, {"y": 0, "x": 0, "id": 2\
+, "width": 2, "height": 4}]'))
+        Square.save_to_file(case_b)
+        with open("Square.json", encoding='utf-8') as file_case_b:
+            self.assertEqual(len(file_case_b.read()), len("[]"))
+        Square.save_to_file(case_c)
+        with open("Square.json", encoding='utf-8') as file_case_c:
+            self.assertEqual(len(file_case_c.read()), len("[]"))
+        case_list_a = Rectangle.load_from_file()
+        case_list_b = Square.load_from_file()
+        self.assertEqual(len(case_list_a), len(case_a))
+        self.assertEqual(len(case_list_b), len(case_b))
+
 
 if __name__ == "__main__":
     unittest.main()
