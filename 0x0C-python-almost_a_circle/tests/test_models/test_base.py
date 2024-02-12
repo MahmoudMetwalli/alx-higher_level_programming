@@ -116,7 +116,7 @@ class TestOfBase(unittest.TestCase):
     def test_8_csv(self):
         """
         test for save_to_file_csv,
-          load_from_file_csv and create_csv method
+          load_from_file_csv and create_csv methods
         """
         case_dictionary_a = {"height": "4", "width": "10", "id": "89"}
         case_dictionary_a_test = {"height": 4, "width":
@@ -124,7 +124,7 @@ class TestOfBase(unittest.TestCase):
         case_r = Rectangle.create_csv(**case_dictionary_a)
         self.assertEqual(len(case_r.to_dictionary()),
                          len(case_dictionary_a_test))
-        Rectangle.save_to_file([case_r])
+        Rectangle.save_to_file_csv([case_r])
         case_list = Rectangle.load_from_file_csv()
         self.assertEqual(case_r.to_dictionary(), case_list[0].to_dictionary())
 
