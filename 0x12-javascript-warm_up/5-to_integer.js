@@ -1,8 +1,10 @@
 #!/usr/bin/node
-// prints two arguments passed to it, in the following format: “ is ”
+// Prints a specified string only if the first argument can be converted to an integer
 
-if (isNaN(process.argv[2])) {
-	console.log('Not a number');
-  } else {
-	console.log('My number: ' + parseInt(process.argv[2]));
-  }
+const args = process.argv;
+const number = parseInt(args[2], 10);
+if (isNaN(number)) {
+  console.log('Not a number');
+} else {
+  console.log(`My number: ${number}`);
+}
