@@ -1,8 +1,12 @@
 #!/usr/bin/node
-// prints the addition of 2 integers
+// Prints the addition of 2 integers
 
 function add (a, b) {
-	return parseInt(a) + parseInt(b);
-  }
-  
-  console.log(add(process.argv[2], process.argv[3]));
+  return a + b;
+}
+
+const args = process.argv;
+const num1 = parseInt(args[2], 10);
+const num2 = parseInt(args[3], 10);
+
+console.log(add(num1, num2));
