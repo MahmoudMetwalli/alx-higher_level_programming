@@ -14,20 +14,26 @@ if (converted.length === 0 || converted.length === 1) {
   i = 1;
   let target = converted[0];
   let subtarget = converted[0];
-  while (i < converted.length) {
-    if (target < converted[i]) {
-      target = converted[i];
+  if (converted.length === 2) {
+    if (subtarget > target) {
+      console.log(target);
+    } else {
+      console.log(subtarget);
     }
-    i += 1;
-  }
-  i = 1;
-  while (i < converted.length) {
-    if (target === converted[i]) {
-      subtarget = subtarget;
-    } else if (subtarget < converted[i]) {
-      subtarget = converted[i];
+  } else {
+    while (i < converted.length) {
+      if (target < converted[i]) {
+        target = converted[i];
+      }
+      i += 1;
     }
-    i += 1;
+    i = 1;
+    while (i < converted.length) {
+      if (subtarget < converted[i] && target !== converted[i]) {
+        subtarget = converted[i];
+      }
+      i += 1;
+    }
+    console.log(subtarget);
   }
-  console.log(subtarget);
 }
