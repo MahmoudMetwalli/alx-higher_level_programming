@@ -13,14 +13,15 @@ if (converted.length === 0 || converted.length === 1) {
 } else {
   i = 1;
   let target = converted[0];
-  let subtarget = converted[0];
   if (converted.length === 2) {
+    const subtarget = converted[1];
     if (subtarget > target) {
       console.log(target);
     } else {
       console.log(subtarget);
     }
   } else {
+    let subtarget = converted[0];
     while (i < converted.length) {
       if (target < converted[i]) {
         target = converted[i];
