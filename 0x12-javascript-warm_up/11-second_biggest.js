@@ -1,23 +1,25 @@
 #!/usr/bin/node
-// Searches the second biggest integer in the list of arguments
+/* yeah! */
 
-const args = process.argv;
-
-if (isNaN(args[2])) {
-  console.log('0');
-} else if (args.length === 3) {
+const array = process.argv;
+const converted = [];
+let i = 2;
+while (array[i] !== undefined) {
+  converted.push(parseInt(array[i]));
+  i += 1;
+}
+if (converted.length === 0 || converted.length === 1) {
   console.log('0');
 } else {
-  let first = parseInt(args[2], 10);
-  let second = parseInt(args[3], 10);
-  for (let i = 2; i < args.length; i++) {
-    if (parseInt(args[i], 10) > first) {
-      second = first;
-      first = parseInt(args[i], 10);
+  i = 1;
+  let target = converted[0];
+  let subtarget = converted[1];
+  while (i < converted.length) {
+    if (target < converted[i]) {
+      subtarget = target;
+      target = converted[i];
     }
-    if (parseInt(args[i], 10) > second && parseInt(args[i], 10) < first) {
-      second = parseInt(args[i], 10);
-    }
+    i += 1;
   }
-  console.log(second);
+  console.log(subtarget);
 }
