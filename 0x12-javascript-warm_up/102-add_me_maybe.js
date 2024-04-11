@@ -1,6 +1,8 @@
 #!/usr/bin/node
-// Function that increments and calls another function
+/* function that executes x times a function */
 
-exports.addMeMaybe = function (number, theFunction) {
-	theFunction(number + 1);
-  };
+function addMeMaybe (a, func) {
+  a++;
+  func(a);
+}
+module.exports = { addMeMaybe };

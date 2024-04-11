@@ -1,8 +1,9 @@
 #!/usr/bin/node
-// Executes a function x times
+/* function that executes x times a function */
 
-exports.callMeMoby = function (x, theFunction) {
-	for (let i = 0; i < x; i++) {
-	  theFunction();
-	}
-  };
+function callMeMoby (a, func) {
+  for (let i = 0; i < a; i++) {
+    func();
+  }
+}
+module.exports = { callMeMoby };
