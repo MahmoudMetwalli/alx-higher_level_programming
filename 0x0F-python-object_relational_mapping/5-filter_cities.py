@@ -14,10 +14,13 @@ if __name__ == "__main__":
                     '{}')\
                     ORDER BY cities.id".format(sys.argv[4]))
         rows = cur.fetchall()
-        for i in range(0, len(rows)):
-            if (i == (len(rows) - 1)):
-                print(f"{rows[i][0]}")
-            else:
-                print(f"{rows[i][0]}",end=", ")
+        if (len(rows) == 0):
+            print()
+        else:
+            for i in range(0, len(rows)):
+                if (i == (len(rows) - 1)):
+                    print(f"{rows[i][0]}")
+                else:
+                    print(f"{rows[i][0]}", end=", ")
         cur.close()
         db.close()
