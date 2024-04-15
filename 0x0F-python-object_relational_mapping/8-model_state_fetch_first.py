@@ -17,4 +17,4 @@ if __name__ == "__main__":
     if not result:
         print()
     else:
-        print(session.query(State.id, State.name).first())
+        print("{}: {}".format(result.id, result.name))
