@@ -2,10 +2,8 @@
 """Lists states"""
 
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+from relationship_city import Base, City
 from sqlalchemy.orm import relationship, backref
-
-Base = declarative_base()
 
 
 class State(Base):
