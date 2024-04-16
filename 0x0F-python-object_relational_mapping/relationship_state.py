@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """To make State object"""
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
