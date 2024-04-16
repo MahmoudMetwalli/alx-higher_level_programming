@@ -1,4 +1,4 @@
-#!/usr/bin/pytho3
+#!/usr/bin/python3
 """ that lists all State objects, and corresponding City objects"""
 import sys
 from sqlalchemy import create_engine
