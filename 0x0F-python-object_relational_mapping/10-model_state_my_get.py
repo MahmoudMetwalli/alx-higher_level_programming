@@ -13,13 +13,11 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    if (len(sys.argv[4].split()) == 1):
-        result = session.query(State.id,
-                               State.name).filter(
-                               State.name.like(
-                                   sys.argv[4])).order_by(State.id)
-    if not result:
+    printed = False
+    for state in session.query(State):
+        if state.name == sys.argv[4]:
+            print(state.id)
+            printed = True
+            break
+    if printed is False:
         print("Not found")
-    else:
-        for id, name in result:
-            print(id)
