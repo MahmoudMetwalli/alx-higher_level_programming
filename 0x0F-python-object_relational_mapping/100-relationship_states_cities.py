@@ -2,11 +2,10 @@
 """Start link class to table in database
 """
 import sys
-from relationship_state import Base, State
-from relationship_city import City
+from relationship_state import State
+from relationship_city import Base, City
 from sqlalchemy.orm import sessionmaker
-
-from sqlalchemy import (create_engine)
+from sqlalchemy import create_engine
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
@@ -14,5 +13,10 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    session.add(City(name='San Francisco', state=State(name='California')))
+    new_state = State(name="California")
+    session.add(new_state)
     session.commit()
+    new_city = City(name="San Francisco", state_id=new_state.id)
+    session.add(new_city)
+    session.commit()
+    session.close()
