@@ -2,7 +2,10 @@
 """To Find Peaks"""
 
 def find_peak(list_of_integers):
-    if len(list_of_integers) is not 0:
-        return max(list_of_integers)
-    else:
-        return None
+    """BRUTE force implementation
+    """
+    max_i = None
+    for ele in list_of_integers:
+        if max_i is None or max_i < ele:
+            max_i = ele
+    return max_i
