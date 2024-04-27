@@ -3,7 +3,6 @@
 import requests
 
 
-
 if __name__ == "__main__":
     URL = 'https://alx-intranet.hbtn.io/status'
     req = requests.get(URL)
