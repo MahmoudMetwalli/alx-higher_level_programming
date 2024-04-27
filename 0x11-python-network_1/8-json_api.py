@@ -19,7 +19,7 @@ if __name__ == "__main__":
                 print('No result')
             else:
                 print("[{}] {}".format(html['id'], html['name']))
-        except requests.exceptions.InvalidJSONError:
+        except requests.exceptions.JSONDecodeError:
             print('Not a valid JSON')
     except Exception:
         pass
