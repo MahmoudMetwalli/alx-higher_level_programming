@@ -12,7 +12,7 @@ if __name__ == "__main__":
 /repos/{}/{}/commits'.format(owner, repo), timeout=1)
         html = req.json()
         for i in range(0, 10):
-            print(html[i]['sha'], end=" ")
+            print(html[i]['sha'], end=": ")
             print(html[i]['commit']['author']['name'])
     except Exception as err:
         print('failed')
