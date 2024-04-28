@@ -15,5 +15,4 @@ if __name__ == "__main__":
             print(html[i]['sha'], end=": ")
             print(html[i]['commit']['author']['name'])
     except Exception as err:
-        print('failed')
-        print(err)
+        pass
