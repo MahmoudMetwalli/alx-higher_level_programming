@@ -6,5 +6,5 @@ request(args, (err, response) => {
     console.error(err);
     return;
   }
-  console.log('Code: ', response.statusCode); // Print the response status code if a response was received
+  console.log('code:', response.statusCode); // Print the response status code if a response was received
 });
